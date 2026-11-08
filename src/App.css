@@ -1,0 +1,810 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #17151f;
+  color: #f5effa;
+}
+
+button, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+}
+
+/* Sol menü */
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background: #211e2b;
+  padding: 35px 22px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-right: 1px solid #332d40;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 65px;
+}
+
+.logo span {
+  font-size: 30px;
+}
+
+.logo h2 {
+  font-size: 23px;
+  color: #e2baff;
+  font-weight: 800;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #c5b9d1;
+  padding: 14px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  background: #373044;
+  color: #fff;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  color: #d9aaff;
+  line-height: 1.8;
+}
+
+.sidebar-bottom small {
+  color: #a99bb6;
+}
+
+/* Ana içerik */
+.main-content {
+  width: calc(100% - 250px);
+  max-width: 1200px;
+  margin-left: 250px;
+  padding: 45px 55px;
+}
+
+/* Karşılama */
+.welcome-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.date {
+  color: #bba9ca;
+  font-size: 14px;
+}
+
+.welcome-section h1 {
+  font-size: 36px;
+  margin: 10px 0;
+  color: #f4e9ff;
+}
+
+.welcome-section p {
+  color: #b9aabd;
+}
+
+.welcome-icon {
+  font-size: 65px;
+}
+
+/* Genel bölüm başlıkları */
+section {
+  background: #211e2b;
+  border: 1px solid #342d40;
+  padding: 28px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+}
+
+.section-heading {
+  margin-bottom: 25px;
+}
+
+.section-heading > span {
+  font-size: 24px;
+}
+
+.section-heading h2 {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 21px;
+  color: #e6d2f7;
+}
+
+.section-heading p {
+  color: #a99db3;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* İstatistik kartları */
+.statistics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.statistics-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #302a3c;
+  border: 1px solid #40364d;
+  padding: 20px;
+  border-radius: 15px;
+  transition: 0.25s;
+}
+
+.statistics-card:hover {
+  transform: translateY(-3px);
+  border-color: #a77bc5;
+}
+
+.statistics-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #40334f;
+  border-radius: 13px;
+  font-size: 24px;
+}
+
+.statistics-card p {
+  color: #b9aabd;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.statistics-card strong {
+  display: block;
+  color: #e6c6ff;
+  font-size: 25px;
+}
+
+.statistics-card .most-mood {
+  font-size: 17px;
+}
+
+/* Ruh hali kartları */
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+}
+
+.mood-card {
+  background: #302a3c;
+  border: 2px solid transparent;
+  color: #f5effa;
+  border-radius: 15px;
+  padding: 22px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transition: 0.25s;
+}
+
+.mood-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--mood-color);
+}
+
+.mood-card.active {
+  background: #3b304b;
+  border-color: var(--mood-color);
+  box-shadow: 0 0 15px rgba(214, 155, 255, 0.15);
+}
+
+.mood-emoji {
+  font-size: 32px;
+}
+
+/* Günlük yazma alanı */
+.journal-section textarea {
+  width: 100%;
+  min-height: 130px;
+  resize: vertical;
+  border: 1px solid #41364e;
+  border-radius: 13px;
+  padding: 17px;
+  background: #302a3c;
+  color: #fff;
+  outline: none;
+  line-height: 1.6;
+}
+
+.journal-section textarea:focus {
+  border-color: #c58be8;
+}
+
+.journal-section textarea::placeholder {
+  color: #94879f;
+}
+
+.save-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+  gap: 15px;
+}
+
+.save-area span {
+  color: #a99db3;
+  font-size: 13px;
+}
+
+.form-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.save-area button {
+  background: #bd87df;
+  color: #21172b;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-weight: 800;
+  transition: 0.25s;
+}
+
+.save-area button:hover {
+  background: #d5a9f0;
+  transform: translateY(-2px);
+}
+
+.save-area .cancel-button {
+  background: #41364e;
+  color: #e6d2f7;
+}
+
+/* Haftalık grafik */
+.weekly-chart {
+  height: 190px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.chart-column {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+}
+
+.chart-count {
+  color: #e5c5ff;
+  font-size: 13px;
+}
+
+.chart-bar-area {
+  width: min(38px, 100%);
+  height: 125px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: #302a3c;
+  border-radius: 10px;
+}
+
+.chart-bar {
+  width: 100%;
+  background: linear-gradient(180deg, #d69bff, #8552c7);
+  border-radius: 10px;
+  transition: height 0.4s ease;
+}
+
+.chart-day {
+  color: #b9aabd;
+  font-size: 12px;
+}
+
+.total-entry {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 25px;
+  padding-top: 18px;
+  border-top: 1px solid #393143;
+}
+
+.total-entry strong {
+  font-size: 27px;
+  color: #d69bff;
+}
+
+.total-entry span {
+  color: #b9aabd;
+  font-size: 14px;
+}
+
+/* Duygu dağılımı */
+.mood-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stat-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-info span {
+  font-size: 15px;
+}
+
+.stat-info strong {
+  color: #d69bff;
+}
+
+.stat-bar {
+  width: 100%;
+  height: 10px;
+  background: #302a3c;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.stat-fill {
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+
+.stat-row small {
+  color: #aaa0b5;
+  font-size: 12px;
+}
+
+/* Takvim */
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.calendar-header h3 {
+  color: #e6d2f7;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+.calendar-header button {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #514260;
+  background: #302a3c;
+  color: #e6c6ff;
+  border-radius: 10px;
+  font-size: 25px;
+  transition: 0.2s;
+}
+
+.calendar-header button:hover {
+  background: #493858;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.calendar-weekday {
+  text-align: center;
+  color: #b9aabd;
+  font-size: 13px;
+  padding: 10px 0;
+  font-weight: 700;
+}
+
+.calendar-empty {
+  min-height: 65px;
+}
+
+.calendar-day {
+  min-height: 65px;
+  border: 1px solid #393143;
+  border-radius: 12px;
+  background: #302a3c;
+  color: #eee3f7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: 0.2s;
+}
+
+.calendar-day:hover {
+  border-color: #bd87df;
+  background: #3b304b;
+}
+
+.calendar-day.today {
+  border-color: #bd87df;
+}
+
+.calendar-day.selected {
+  background: #493858;
+  border: 2px solid #d69bff;
+}
+
+.calendar-day.has-entry {
+  background: #383047;
+}
+
+.calendar-day > span:first-child {
+  font-weight: 700;
+}
+
+.calendar-dot {
+  font-size: 12px;
+  color: #e6c6ff;
+  line-height: 1;
+}
+
+.calendar-legend {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #b9aabd;
+  font-size: 12px;
+  margin-top: 18px;
+}
+
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #bd87df;
+}
+
+.selected-day {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #393143;
+}
+
+.selected-day h3 {
+  color: #e6d2f7;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.no-day-entry {
+  color: #a99db3;
+  font-size: 14px;
+  padding: 12px 0;
+}
+
+.selected-day-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.selected-day-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  background: #302a3c;
+  padding: 14px;
+  border-radius: 12px;
+}
+
+.selected-day-card > span {
+  font-size: 25px;
+}
+
+.selected-day-card strong {
+  color: #e6d2f7;
+}
+
+.selected-day-card p {
+  color: #b9aabd;
+  font-size: 13px;
+  margin-top: 5px;
+  overflow-wrap: anywhere;
+}
+
+/* Günlük geçmişi */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.history-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #302a3c;
+  border: 1px solid #40364d;
+  padding: 17px;
+  border-radius: 13px;
+  transition: 0.2s;
+}
+
+.history-card:hover {
+  border-color: #9d73bd;
+}
+
+.history-emoji {
+  font-size: 30px;
+}
+
+.history-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.history-content strong {
+  display: block;
+  color: #e7d3f5;
+}
+
+.history-content small {
+  display: block;
+  color: #a99db3;
+  margin-top: 4px;
+}
+
+.history-content p {
+  color: #d1c4da;
+  margin-top: 9px;
+  overflow-wrap: anywhere;
+}
+
+.history-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.edit-button,
+.delete-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 9px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.edit-button:hover {
+  background: rgba(180, 140, 255, 0.15);
+}
+
+.delete-button:hover {
+  background: rgba(255, 100, 120, 0.15);
+}
+
+/* Boş günlük alanı */
+.empty-history {
+  text-align: center;
+  padding: 35px 10px;
+  color: #b9aabd;
+}
+
+.empty-history span {
+  font-size: 35px;
+}
+
+.empty-history p {
+  margin: 12px 0 5px;
+}
+
+.empty-history small {
+  color: #91849c;
+}
+
+/* Alt bilgi */
+.footer {
+  text-align: center;
+  padding: 25px 10px;
+  color: #93859f;
+  font-size: 13px;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .main-content {
+    padding: 35px 25px;
+  }
+
+  .mood-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Telefon */
+@media (max-width: 700px) {
+  .app-container {
+    display: block;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    padding: 18px;
+  }
+
+  .logo {
+    margin-bottom: 18px;
+  }
+
+  .menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .menu a {
+    padding: 9px;
+    font-size: 13px;
+  }
+
+  .sidebar-bottom {
+    display: none;
+  }
+
+  .main-content {
+    width: 100%;
+    margin-left: 0;
+    padding: 25px 15px;
+  }
+
+  .welcome-section h1 {
+    font-size: 28px;
+  }
+
+  .welcome-icon {
+    font-size: 45px;
+  }
+
+  section {
+    padding: 20px 15px;
+  }
+
+  .section-heading h2 {
+    font-size: 18px;
+  }
+
+  .statistics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .statistics-card {
+    padding: 16px;
+  }
+
+  .mood-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .save-area {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .save-area button {
+    width: 100%;
+  }
+
+  .form-buttons {
+    width: 100%;
+  }
+
+  .form-buttons button {
+    flex: 1;
+  }
+
+  .weekly-chart {
+    gap: 7px;
+  }
+
+  .chart-day {
+    font-size: 10px;
+  }
+
+  .calendar-grid {
+    gap: 4px;
+  }
+
+  .calendar-day {
+    min-height: 48px;
+    border-radius: 8px;
+    font-size: 12px;
+  }
+
+  .calendar-empty {
+    min-height: 48px;
+  }
+
+  .calendar-weekday {
+    font-size: 11px;
+  }
+
+  .calendar-dot {
+    font-size: 10px;
+  }
+
+  .history-card {
+    gap: 9px;
+    padding: 12px;
+  }
+
+  .history-actions {
+    gap: 2px;
+  }
+
+  .edit-button,
+  .delete-button {
+    padding: 6px;
+    font-size: 16px;
+  }
+}
